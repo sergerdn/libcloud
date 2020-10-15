@@ -405,9 +405,8 @@ class VultrNodeDriver(NodeDriver):
         return node
 
     def _to_location(self, data):
-        extra_keys = [
-            'continent', 'state', 'ddos_protection', 'block_storage', 'regioncode'
-        ]
+        extra_keys = ['continent', 'state', 'ddos_protection',
+                      'block_storage', 'regioncode']
         extra = self._helper.handle_extra(extra_keys, data)
 
         return NodeLocation(id=data['DCID'], name=data['name'],
