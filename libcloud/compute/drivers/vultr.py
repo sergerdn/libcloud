@@ -145,7 +145,7 @@ class VultrConnection(ConnectionKey):
 
         try:
             return self.method \
-                   not in self.unauthenticated_endpoints[self.action]
+                not in self.unauthenticated_endpoints[self.action]
         except KeyError:
             return True
 
@@ -361,7 +361,7 @@ class VultrNodeDriver(NodeDriver):
         if 'status' in data:
             state = self.NODE_STATE_MAP.get(data['status'], NodeState.UNKNOWN)
             if state == NodeState.RUNNING and \
-                data['power_status'] != 'running':
+                    data['power_status'] != 'running':
                 state = NodeState.STOPPED
         else:
             state = NodeState.UNKNOWN
